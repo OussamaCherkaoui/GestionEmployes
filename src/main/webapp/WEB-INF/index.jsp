@@ -32,7 +32,7 @@
                     <td>${employe.telephone}</td>
                     <td>${employe.departement}</td>
                     <td>${employe.poste}</td>
-                    <td><form method="post" action="showEmployee"><input type="submit" value="Modifier" name="${ employe.nom }"><input type="submit" value="Supprimer" name="${ employe.nom }"></form></td>
+                    <td><form method="post" action="<c:url value='updateEmploye?nameEmploye="${employe.nom}",mail="${employe.nom}",telephone="${employe.nom}",departement="${employe.nom}",poste="${employe.nom}"'/>"><input type="submit" value="Modifier"></form><form method="post" action="removeEmploye"><input type="submit" value="Supprimer" name="${ employe.nom }"></form></td>
                 </tr>
             </c:forEach>
         </tbody>

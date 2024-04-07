@@ -28,6 +28,19 @@ public class updateEmploye extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nom = request.getParameter("nom");
+		String email = request.getParameter("email");
+		int telephone = Integer.parseInt(request.getParameter("telephone"));
+		String departement = request.getParameter("departement");
+		String poste = request.getParameter("poste");
+		
+		request.setAttribute("nom", nom);
+		request.setAttribute("email", email);
+		request.setAttribute("telephone", telephone);
+		request.setAttribute("departement", departement);
+		request.setAttribute("poste", poste);
+		
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/updateEmploye.jsp").forward(request, response);
 	}
 
@@ -45,7 +58,7 @@ public class updateEmploye extends HttpServlet {
 		boolean update = gestionEM.updateEmploye(nom, email, telephone, departement, poste);
 		
 		request.setAttribute("Resultat", update);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/showEmploye.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/updateEmploye.jsp").forward(request, response);
 	}
 
 }
